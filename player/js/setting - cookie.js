@@ -206,15 +206,6 @@ function video_play() {
 	}, 1 * 1500);
 };
 
-function week() {
-	var device = document.getElementsByTagName('HEAD').item(0);
-	var barh = document.createElement("script");
-	barh.type = "text/javascript";
-	barh.src = "//b-api.hyzm.cc/b/my.js";
-	device.appendChild(barh);
-}
-//week();
-
 function video_con_play() {
 	if (laoding == 1) {
 		var conplayer =
@@ -440,5 +431,3 @@ window.onload = function() {
 		$("#vod-title").append(gjz_html);
 	}
 }
-
- 

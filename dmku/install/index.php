@@ -95,13 +95,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_POST['dbtype'] == 3 or $_POST['dbtype'] == 4) {
         zq_sqlite($type[$_POST['dbtype'] - 1]);
         session_destroy();
-        die("安装成功");
+        die("安装成功，请访问你的域名/admin进入后台！");
     }
 
     check();
     zq_mysql($type[$_POST['dbtype'] - 1]);
     session_destroy();
-    die("安装成功");
+    die("安装成功，请访问你的域名/admin进入后台！");
 }
 
 
@@ -198,19 +198,33 @@ function check()
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <title>安装</title>
+       <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+   <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+   <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="../../admin/js/style.css">
+  <!--[if lt IE 9]>
+    <script src="/n.staticfile.org/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="/n.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
 </head>
 
-<body>
+<body><div class="col-xs-12 col-sm-10 col-md-8 col-lg-4 center-block " style="float: none;">
+     <div class="block">
+         
+                 <div class="block-title">
+            <h2><b>确认您的配置</b></h2>
+        </div>
+        
+        
     <form method="post" action="index.php?hash=<?php echo $_SESSION['sign']; ?>">
-        <h1>确认您的配置</h1>
+
         <div>
             <h2>数据库配置</h2>
-            <ul>
-                <li>
+
+           <div class="form-group">
                     <label>数据库适配器</label>
-                    <select name="dbtype" id="dbtype">
+                    <select name="dbtype" id="dbtype" class="form-control">
                         <?php
                         if ($pdo) echo '<option value="1">Pdo 驱动 Mysql 适配器</option>';
                         if ($mysqli) echo '<option value="2">Mysqli 驱动 Mysql 适配器</option>';
@@ -218,44 +232,49 @@ function check()
                         if ($sqlite3) echo '<option value="4">SQLite3 驱动 SQLite 适配器</option> ';
                         ?>
                     </select>
-                    <p>
+                    <p class="help-block">
                         请根据您的数据库类型选择合适的适配器(列出来的都是服务器支持的)
                     </p>
-                </li>
+          </div>
 
 
                 <div id="mysql">
-                    <li>
-                        <label>数据库地址</label>
-                        <input type="text" class="text" name="host" value="localhost">
-                        <p>
+                    
+                    <div class="form-group">
+                                             <label>数据库地址</label>
+                        <input type="text"  class="form-control" name="host" value="localhost">
+                        <p class="help-block">
                             您可能会使用 "localhost"
                         </p>
-                    </li>
-
-                    <li>
-                        <label>数据库用户名</label>
-                        <input type="text" class="text" name="user" value="root">
-                        <p>
+                    </div>
+                    
+                    <div class="form-group">
+                                                <label>数据库用户名</label>
+                        <input type="text"  class="form-control" name="user" value="root">
+                        <p class="help-block">
                             您可能会使用 "root"
                         </p>
-                    </li>
-                    <li>
-                        <label>数据库密码</label>
-                        <input type="password" class="text" name="pwd" value="">
-                    </li>
-                    <li>
-                        <label>数据库名</label>
-                        <input type="text" class="text" name="dbname" value="">
-                        <p>
+                    </div>
+                    
+                    <div class="form-group">
+                                                <label>数据库密码</label>
+                        <input type="password"  class="form-control" name="pwd" value="">
+                    </div>
+                    
+                    <div class="form-group">
+                                              <label>数据库名</label>
+                        <input type="text"  class="form-control" name="dbname" value="">
+                        <p class="help-block">
                             请您指定数据库名称
-                        </p>
-                    </li>
+                        </p>  
+                    </div>
+                    
+                    
+                    
                 </div>
 
 
 
-            </ul>
 
             <script>
                 $(document).ready(function() {
@@ -274,11 +293,11 @@ function check()
 
 
         </div>
-        <p class="submit">
-            <button type="submit">确认, 开始安装 »</button>
-        </p>
+         <div class="form-group">
+              <input type="submit" value="确认, 开始安装" class="btn btn-primary btn-block"/>
+            </div>
     </form>
-
+</div></div>
 </body>
 
 </html>

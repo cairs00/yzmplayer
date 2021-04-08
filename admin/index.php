@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-	<title>1CTV - 播放器后台管理</title>
+	<title>喵33 - 播放器后台管理</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui/css/layui.css" />
 	<script type="text/javascript" src="https://www.layuicdn.com/layui/layui.js" type="text/javascript" charset="utf-8"></script>
@@ -147,7 +147,7 @@
 							<div class="layui-unselect layui-form-switch" lay-skin="_switch"><em>Off</em><i></i></div>
 						</div>
 					</div>
-					<div class="layui-form-item">
+					<!--<div class="layui-form-item">
 						<label class="layui-form-label">广告类型</label>
 						<div class="layui-input-inline">
 							<input type="radio" name="yzm[ads][set][state]" value="1" title="视频" <?php $t = $yzm['ads']['set']['state'];
@@ -217,7 +217,7 @@
 						<div class="layui-input-inline long">
 							<input type="text" name="yzm[ads][set][vod][link]" value="<?php echo $yzm['ads']['set']['vod']['link'] ?>" size="30" class="layui-input upload-input" placeholder="点击链接地址">
 						</div>
-					</div>
+					</div>-->
 					<div class="layui-form-item">
 						<label class="layui-form-label">暂停广告开关</label>
 						<div class="layui-input-block">

@@ -2223,7 +2223,8 @@ f .yzmplayer.yzmplayer-mobile .yzmplayer-controller .yzmplayer-icons .yzmplayer-
 	cursor: pointer;
 	position: absolute;
 	right: 10px;
-	top: 10px
+	top: 10px;
+	z-index: 1000;
 }
 
 .yzmplayer-info-panel .yzmplayer-info-panel-item>span {
@@ -2857,7 +2858,7 @@ ul::-webkit-scrollbar-track {
 	-webkit-transition: all .3s ease-in-out;
 	transition: all .3s ease-in-out;
 	overflow: hidden;
-	z-index: 2;
+	z-index: 1002;
 	text-align: center;
 	background: rgba(21, 21, 21, .9);
 	border-radius: 2px;

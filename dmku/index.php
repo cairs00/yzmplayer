@@ -1,24 +1,19 @@
 <?php
-//ini_set("display_errors", "On");
-//error_reporting(E_ALL);
-//include ('../admin/config.inc.php');
+
 require_once('init.php');
 require_once('class/danmu.class.php');
-/*if ($yzm['ok']==1) {
 
-if (isset($_SERVER['HTTP_REFERER'])) {
-    if (stripos($_SERVER['HTTP_REFERER'], $_SERVER['HTTP_HOST']) === false) {
-        echo '{"code":110,"msg":"看什么看，再看我报警了。。"}';
-        exit;
-    }
-} else {
-      echo '{"code":110,"msg":"看什么看，再看我报警了。。"}';
-      exit;
-}
-}*/
+$_configx = require_once('config.inc.php');
+
+$username=$_configx['username'];
+$password = $_configx['后台密码'];
+
+$cookielock=md5($username.$password);
+
+
 
 $d = new danmu();
-if ($_GET['ac'] == "edit") {
+if ($_GET['ac'] == "edit"&&$_COOKIE["zt"]==$cookielock) {
     $cid = $_POST['cid'] ?: showmessage(-1, null);
     $data = $d->编辑弹幕($cid) ?:  succeedmsg(0, '完成');
     exit;
@@ -56,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $d->添加弹幕($d_data);
         succeedmsg(23, true);
     } else {
-        succeedmsg(-2, "你tm发送的太频繁了,请问你单身几年了？");
+        succeedmsg(-2, "你发送的太频繁了,请问你单身几年了？");
     }
 }
 
@@ -76,14 +71,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     } else if ($_GET['ac'] == "reportlist") {
         $data = $d->举报列表() ?: showmessage(0, []);
         showmessage(0, $data);
-    } else if ($_GET['ac'] == "del") {
+    } else if ($_GET['ac'] == "del"&&$_COOKIE["zt"]==$cookielock) {
         $id = $_GET['id'] ?: succeedmsg(-1, null);
         $type = $_GET['type'] ?: succeedmsg(-1, null);
         $data = $d->删除弹幕($id) ?: succeedmsg(0, []);
         succeedmsg(23, true);
-    } else if ($_GET['ac'] == "so") {
+    } else if ($_GET['ac'] == "so"&&$_COOKIE["zt"]==$cookielock) {
         $key = $_GET['key'] ?: showmessage(0, null);
         $data = $d->搜索弹幕($key) ?: showmessage(0, []);
         showmessage(0, $data);
+    }else{
+        echo '系统故障！';
     }
 }

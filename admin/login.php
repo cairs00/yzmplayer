@@ -2,20 +2,20 @@
 $_config = require_once('../dmku/config.inc.php');
 error_reporting(0); 
 $pass= $_POST;
-$sj = $_config['后台密码'];
-//$sj = rand(123,999)
-if (empty($_COOKIE["pass"])) {
-	setcookie("pass",$sj, time()+86400);
-	echo "<script language='JavaScript'> 
-function myrefresh() 
-{ 
-window.location.reload(); 
-} 
-setTimeout('myrefresh()',10); //指定1秒刷新壹次 
-</script>";
-}
-if($_COOKIE["zt"]!=="ok"){
-      if($pass[pass]=="" || $pass[pass]!=$_COOKIE["pass"]) {
+
+$username=$_config['username'];
+$password = $_config['后台密码'];
+
+$cookielock=md5($username.$password);
+
+
+if($_COOKIE["zt"]!==$cookielock){
+      if($pass[pass]=="" || $pass[pass]!=$password|| $pass[username]!=$username) {
+          
+          
+ if (!empty($pass[pass])||!empty($pass[username])) {$ti="用户名或密码错误！";}
+
+
 echo '
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -23,13 +23,9 @@ echo '
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>弹幕管理系统 - Jdyzm</title>
-    <meta name="keywords" content="我是关键词">
-    <meta name="description" content="我是介绍 ">
+  <title>弹幕管理系统</title>
 	<link rel="shortcut icon" href="js/favicon.png" type="image/x-icon">
-   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-   <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-   <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
    <link rel="stylesheet" href="js/style.css">
   <!--[if lt IE 9]>
     <script src="/n.staticfile.org/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -45,15 +41,18 @@ echo '
 
     <div class="block">
         <div class="block-title">
-            <div class="block-options pull-right">
-            <a href="javascript:history.back();" class="btn btn-effect-ripple btn-default toggle-bordered enable-tooltip">返回</a>
-            </div>
             <h2><b>弹幕管理系统</b></h2>
         </div>
+'.$ti.'
           <form action="" method="post" role="form">
+           <div class="form-group">
+             <div class="input-group"><div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+              <input type="text" name="username" class="form-control" required="required" autocomplete="off" placeholder="请输入用户名"/>
+            </div></div>
+             <div class="form-group">
             <div class="input-group"><div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
               <input type="password" name="pass" class="form-control" required="required" autocomplete="off" placeholder="请输入密码"/>
-            </div><br/>
+            </div></div>
             <div class="form-group">
               <input type="submit" value="登录" class="btn btn-primary btn-block"/>
             </div>
@@ -63,7 +62,7 @@ echo '
     die();
 }else{
 	//<br><center><h2>密码: '.$_COOKIE["pass"].'</h2></center>
-    setcookie("zt", "ok", time()+86400);
+    setcookie("zt", $cookielock, time()+86400);
 }
 }else{
   	

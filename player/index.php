@@ -2,27 +2,26 @@
 <html>
 
 <head>
-<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
-<meta http-equiv="content-language" content="zh-CN"/>
-<meta http-equiv="X-UA-Compatible" content="chrome=1"/>
-<meta http-equiv="pragma" content="no-cache"/>
-<meta http-equiv="expires" content="0"/>
-<meta name="referrer" content="never"/>
-<meta name="renderer" content="webkit"/>
-<meta name="msapplication-tap-highlight" content="no"/>
-<meta name="HandheldFriendly" content="true"/>
-<meta name="x5-page-mode" content="app"/>
-<meta name="Viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
-<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8"><meta name="referrer" content="never">
     <title>自建免费视频站播放器</title>
-    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/IMGRU/IMG/2020/05/24/5eca62efd083f.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/yzmplayer.css">
+        <meta name="renderer" content="webkit"> <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="theme-color" content="#de698c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="applicable-device" content="mobile">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cairs00/yzmplayer@master/player/css/yzmplayer.css?20200622">
     <style>
-        .yzmplayer-full-icon span svg,
-        .yzmplayer-fulloff-icon span svg {
-            display: none;
+/*隐藏页面全屏按钮，隐藏加载动画，隐藏视频信息屏蔽词汇，隐藏弹幕规则*/
+.yzmplayer-info-panel-item-title-amount ,#loading-box,.yzmplayer-full .yzmplayer-full-in-icon,#link3-error,.dmrules{
+            display: none !important;
         }
-
         .yzmplayer-full-icon span,
         .yzmplayer-fulloff-icon span {
             background-size: contain !important;
@@ -32,15 +31,11 @@
         }
 
         .yzmplayer-full-icon span {
-            background: url(https://cdn.jsdelivr.net/gh/IMGRU/IMG/2020/05/24/5eca627664041.png) center no-repeat;
+            background: url(./img/full.png) center no-repeat;
         }
 
         .yzmplayer-fulloff-icon span {
-            background: url(https://cdn.jsdelivr.net/gh/IMGRU/IMG/2020/05/24/5eca6278b7137.webp) center no-repeat;
-        }
-
-        #loading-box {
-            background: #<?php echo ($_GET['color']); ?> !important;
+            background: url(./img/fulloff.png) center no-repeat;
         }
 
         #vod-title {
@@ -177,14 +172,10 @@
             float: left;
             width: 400px;
         }
-
-        #link3-error {
-            display: none;
-        }
     </style>
-    <script src="js/yzmplayer.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/setting.js"></script>
+    <script src="js/yzmplayer.js?20201106"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cairs00/yzmplayer@master/player/js/jquery.min.js"></script>
+    <script src="js/setting.js?20201123"></script>
     <?php
     if (strpos($_GET['url'], 'm3u8')) {
         echo '<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/hls.js/dist/hls.min.js"></script>';
@@ -192,7 +183,7 @@
         echo '<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/flv.js/dist/flv.min.js"></script>';
     }
     ?>
-    <script src="js/layer.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cairs00/yzmplayer@master/player/js/layer.js"></script>
 
     <script>
         var css = '<style type="text/css">';
@@ -221,7 +212,7 @@
             "diyid": [0, '游客', 1] //自定义弹幕id
         }
         var config = {
-            "api": '../dmku/', //弹幕接口
+            "api": '/bili/dmku/', //弹幕接口/dmku/
             "av": '<?php echo ($_GET['av']); ?>', //B站弹幕id 45520296
             "url": "<?php echo ($_GET['url']); ?>", //视频链接
             "id": "<?php echo (substr(md5($_GET['url']), -20)); ?>", //视频id
@@ -232,12 +223,8 @@
             "user": '<?php echo ($_GET['user']); ?>', //用户名
             "group": "<?php echo ($_GET['group']); ?>" //用户组
         }
-   
         YZM.start()
     </script>
-    <script>
-
-</script>
 </body>
 
 </html>
