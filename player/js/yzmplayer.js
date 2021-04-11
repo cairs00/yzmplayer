@@ -442,7 +442,7 @@
 										if (Hls.isSupported()) {
 											var i = new Hls;
 											i.loadSource(e.src), i.attachMedia(e)
-										} else this.notice("Error: Hls is not supported.");
+										} else this.notice("");
 									else this.notice("Error: Can't find Hls.");
 									break;
 								case "flv":
@@ -453,7 +453,7 @@
 												url: e.src
 											});
 											a.attachMediaElement(e), a.load()
-										} else this.notice("Error: flvjs is not supported.");
+										} else this.notice("");
 									else this.notice("Error: Can't find flvjs.");
 									break;
 								case "dash":
@@ -1043,7 +1043,7 @@
 			});
 			var a = {
 				"zh-cn": {
-					"Danmaku is loading": "弹幕加载中",
+					"Danmaku is loading": " ",
 					Top: "顶部",
 					Bottom: "底部",
 					Rolling: "滚动",
@@ -1079,7 +1079,7 @@
 					"Video info": "视频统计信息"
 				},
 				"zh-tw": {
-					"Danmaku is loading": "彈幕加載中",
+					"Danmaku is loading": " ",
 					Top: "頂部",
 					Bottom: "底部",
 					Rolling: "滾動",
@@ -2271,7 +2271,7 @@
 				p = function() {
 					function e(t) {
 						var n = this;
-						a(this, e), this.player = t, this.autoHideTimer = 0, r.default.isMobile || (this.player.container.addEventListener(
+						a(this, e), this.player = t, this.autoHideTimer = 0, this.player.container.addEventListener(
 								"mousemove",
 								function() {
 									n.setAutoHide()
@@ -2281,7 +2281,7 @@
 								n.setAutoHide()
 							}), this.player.on("pause", function() {
 								n.setAutoHide()
-							})), this.initPlayButton(), this.initThumbnails(), this.initPlayedBar(), this.initFullButton(), this.initQualityButton(),
+							}), this.initPlayButton(), this.initThumbnails(), this.initPlayedBar(), this.initFullButton(), this.initQualityButton(),
 							this.initScreenshotButton(), this.initSubtitleButton(), r.default.isMobile || this.initVolumeButton()
 					}
 					return o(e, [{

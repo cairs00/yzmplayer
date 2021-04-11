@@ -145,7 +145,7 @@ var YZM = {
 				YZM.dp.play();
 				$("#loading-box").remove();
 				YZM.jump.head();
-			}, 1 * 1500);
+			}, 2 * 1500);
 		},
 		'next': function() {
 			top.location.href = up.mylink + config.next;
@@ -214,7 +214,7 @@ var YZM = {
 			});
 			setTimeout(function() {
 				$(".memory-play-wrap").remove();
-			}, 20 * 1000);
+			}, 40 * 1000);
 			$(".conplaying").on("click", function() {
 				clearTimeout(timer);
 				$("#loading-box").remove();
@@ -533,10 +533,10 @@ var YZM = {
 	'endedHandler': function() {
 		YZM.setCookie("time_" + config.url, "", -1);
 		if (config.next != '') {
-			YZM.dp.notice("5s后,将自动为您播放下一集");
+			YZM.dp.notice("3s后,将自动为您播放下一集");
 			setTimeout(function() {
 				YZM.video.next();
-			}, 5 * 1000);
+			}, 3 * 1000);
 		} else {
 			YZM.dp.notice("视频播放已结束");
 			setTimeout(function() {
@@ -593,7 +593,7 @@ var YZM = {
 		'dmplay': function(url) {
 			YZM.dmid();
 			YZM.dp = new yzmplayer({
-				autoplay: false,
+				autoplay: true,
 				element: document.getElementById('player'),
 				theme: config.color,
 				logo: config.logo,
@@ -614,7 +614,7 @@ var YZM = {
 		'bdplay': function(url) {
 			YZM.dmid();
 			YZM.dp = new yzmplayer({
-				autoplay: false,
+				autoplay: true,
 				element: document.getElementById('player'),
 				theme: config.color,
 				logo: config.logo,
