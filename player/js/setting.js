@@ -201,7 +201,7 @@ var YZM = {
 							clearInterval(timer);
 							//YZM.video.seek();
 							YZM.dp.play();
-							$(".memory-play-wrap,#loading-box").remove();
+							//$(".memory-play-wrap,#loading-box").remove();
 						}
 					}, 1000);
 				}, 1);
