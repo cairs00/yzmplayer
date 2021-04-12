@@ -214,7 +214,7 @@ var YZM = {
 			});
 			setTimeout(function() {
 				$(".memory-play-wrap").remove();
-			}, 40 * 1000);
+			}, 25 * 1000);
 			$(".conplaying").on("click", function() {
 				clearTimeout(timer);
 				$("#loading-box").remove();
