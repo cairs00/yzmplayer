@@ -1891,7 +1891,7 @@ f .yzmplayer.yzmplayer-mobile .yzmplayer-controller .yzmplayer-icons .yzmplayer-
 
 .yzmplayer-controller .yzmplayer-icons .yzmplayer-setting .yzmplayer-setting-speed-item:hover .yzmplayer-label {
 	transition: all .2s ease-in-out;
-	color: #00a1d6;
+	color: #de698c;
 }
 
 .yzmplayer-controller .yzmplayer-icons .yzmplayer-toggle {
@@ -2427,7 +2427,7 @@ dl {
 }
 
 .danmuku-list li:nth-child(2):hover {
-	color: #00a1d6
+	color: #de698c
 }
 
 .danmuku-list li:nth-child(3) {
@@ -2557,7 +2557,7 @@ ul::-webkit-scrollbar-track {
 	height: 26px;
 	padding: 1px;
 	border-radius: 0px 4px 4px 0;
-	background-color: rgb(0, 161, 214);
+	background-color: rgb(222, 105, 140);
 	color: hsla(0, 0%, 100%, .5);
 	line-height: 26px;
 	bottom: 0px;
@@ -2844,7 +2844,7 @@ ul::-webkit-scrollbar-track {
 }
 
 .yzmplayer-setting-speeds:hover .title {
-	background-color: #00a1d6 !important;
+	background-color: #de698c !important;
 }
 
 .speed-stting {
@@ -2894,8 +2894,8 @@ ul::-webkit-scrollbar-track {
 }
 
 .showdan-setting .yzmplayer-toggle input+label {
-	border: 1px solid #00a1d6 !important;
-	background: #00a1d6 !important;
+	border: 1px solid #de698c !important;
+	background: #de698c !important;
 }
 
 .yzmplayer-mobile .yzmplayer-controller {
