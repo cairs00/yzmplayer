@@ -1,3 +1,13 @@
+﻿# 2021年11月 修改说明
+1，添加如何添加右键内容修改在yzmplayer.js的986行说明
+2，修复加载动画时，视频可以播放，但提示失败问题
+3，删除失效的图片
+4、修复弹幕后台管理登录系统后门
+5、修复安装程序界面没有样式问题
+6、后台登录支持输出账号与密码了，更改用户名与密码请修改dmku文件夹下的config.inc.php文件
+7、修复在播放器中右键菜单点击后自动在新窗口打开一个空白页面的bug
+8、修复后台不能编辑和删除弹幕
+9、修复加载动画时，视频可以播放，但提示失败问题
 
 # 2020年7月泽泽修改说明
 1，修复弹幕后台管理登录系统后门（原版居然将正确密码存cookie里了）
@@ -32,7 +42,7 @@
 
 # 请求示例
 #### 基本
-http://localhost/player/?url=https://cdn.jsdelivr.net/gh/MoGuJ/Video-Bed/Your.Name/playlist.m3u8
+http://localhost/player/?url=https://pro-xhb-video.oss-cn-hangzhou.aliyuncs.com/eaee1372-2e53-49c5-b32c-2639ebe8c814.mp4
 
 #### 高级
 除了 url 参数，其他都可以省略

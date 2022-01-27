@@ -1,8 +1,8 @@
-<?php
+﻿<?php
  $yzm =  array (
   'danmuon' => 'on',
-  'color' => '#00a1d6',
-  'logo' => 'https://cdn.jsdelivr.net/gh/cairs00/mojia@master/asset/img/logo.png',
+  'color' => '#de698c',
+  'logo' => 'https://gitee.com/cairsh/mojia/raw/master/asset/img/logo.png',
   'trytime' => '3',
   'waittime' => '3',
   'sendtime' => '3',
@@ -11,26 +11,11 @@
   'ads' => 
   array (
     'state' => 'on',
-    'set' => 
-    array (
-      'state' => '1',
-      'group' => 'null',
-      'pic' => 
-      array (
-        'time' => '3',
-        'img' => '',
-        'link' => '#',
-      ),
-      'vod' => 
-      array (
-        'url' => '/ad.mp4',
-        'link' => '',
-      ),
-    ),
     'pause' => 
     array (
-      'pic' => '',
-      'link' => '#',
+      'state' => 'on',
+      'pic' => 'https://gitee.com/cairsh/mojia/raw/master/asset/img/logo.png',
+      'link' => 'https://www.2063.ml:8443',
     ),
   ),
 );

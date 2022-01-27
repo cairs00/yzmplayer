@@ -111,7 +111,7 @@ var YZM = {
 		YZM.dp.danmaku.opacity(1);
 	},
 	'def': function() {
-		console.log('播放器开启');
+		console.log('EDGplayer pro播放器开启');
 		YZM.stime = 0;
 		YZM.headt = yzmck.get("headt");
 		YZM.lastt = yzmck.get("lastt");
@@ -145,7 +145,7 @@ var YZM = {
 				YZM.dp.play();
 				$("#loading-box").remove();
 				YZM.jump.head();
-			}, 2 * 1500);
+			}, 1 * 1500);
 		},
 		'next': function() {
 			top.location.href = up.mylink + config.next;
@@ -214,7 +214,7 @@ var YZM = {
 			});
 			setTimeout(function() {
 				$(".memory-play-wrap").remove();
-			}, 25 * 1000);
+			}, 20 * 1000);
 			$(".conplaying").on("click", function() {
 				clearTimeout(timer);
 				$("#loading-box").remove();
@@ -593,7 +593,7 @@ var YZM = {
 		'dmplay': function(url) {
 			YZM.dmid();
 			YZM.dp = new yzmplayer({
-				autoplay: true,
+				autoplay: false,
 				element: document.getElementById('player'),
 				theme: config.color,
 				logo: config.logo,
@@ -614,7 +614,7 @@ var YZM = {
 		'bdplay': function(url) {
 			YZM.dmid();
 			YZM.dp = new yzmplayer({
-				autoplay: true,
+				autoplay: false,
 				element: document.getElementById('player'),
 				theme: config.color,
 				logo: config.logo,
@@ -666,7 +666,7 @@ var YZM = {
 		'pause': {
 			'play': function(l, p) {
 				if (YZM.ads.pause.state == 'on') {
-					var pause_ad_html = '<div id="player_pause"><div class="tip">广告</div><a href="' + l +
+					var pause_ad_html = '<div id="player_pause"><div class="tip"></div><a href="' + l +
 						'" target="_blank"><img src="' + p + '"></a></div>';
 					$('#player').before(pause_ad_html);
 				}
@@ -678,9 +678,7 @@ var YZM = {
 	}
 
 }
-
-
-// 控制台报错
+ // 控制台报错
 //setInterval(function() {
 //window.Firebug && window.Firebug.chrome && window.Firebug.chrome.isInitialized ? t("on") : (a = "off", ("undefined"!==typeof console.clear) && console.clear());
 //debugger;

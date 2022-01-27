@@ -1,7 +1,7 @@
 .head{background-color: hsla(0, 0%, 100%, 0.69);box-shadow: 1px 1px 3px 1px hsla(0, 0%, 100%, 0.69);}
 input{outline:none;}
 input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset;}
-body{background: url(https://cdn.jsdelivr.net/gh/Fog-Forest/Picture-Bed/IMG/20200519205555.jpg)top fixed no-repeat;}
+body{background: url(/player/img/loading.gif)top fixed no-repeat;}
 .navbar-brand{font-size: 25px;line-height: 20px;font-weight: bold;}
 .bd{background-color: hsla(0, 0%, 100%, 0.69);height: 100%;border-radius: 5px;padding: 45px;}
 .wrapper{width: 900px;margin: 0 auto;}

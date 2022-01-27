@@ -15,11 +15,10 @@
     <meta name="applicable-device" content="mobile">
     <meta name="screen-orientation" content="portrait">
     <meta name="x5-orientation" content="portrait">
-    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/yzmplayer.css?20200622">
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/cairs00/yzmplayer@master/player/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cairs00/yzmplayer@master/player/css/yzmplayer.css?20200622">
     <style>
 /*隐藏页面全屏按钮，隐藏加载动画，隐藏视频信息屏蔽词汇，隐藏弹幕规则*/
-/*默认是显示加载动画的，如需关闭复制下面23行注释的代码替换掉第24行整行代码*/
 .yzmplayer-info-panel-item-title-amount ,#loading-box,#player_pause .tip,.yzmplayer-full .yzmplayer-full-in-icon,#link3-error,.dmrules{
             display: none !important;
         }
@@ -32,11 +31,11 @@
         }
 
         .yzmplayer-full-icon span {
-            background: url(./img/full.png) center no-repeat;
+            background: url(https://cdn.jsdelivr.net/gh/cairs00/yzmplayer@master/player/img/full.png) center no-repeat;
         }
 
         .yzmplayer-fulloff-icon span {
-            background: url(./img/fulloff.png) center no-repeat;
+            background: url(https://cdn.jsdelivr.net/gh/cairs00/yzmplayer@master/player/img/fulloff.png) center no-repeat;
         }
 
         #vod-title {
@@ -109,6 +108,7 @@
         #player_pause img {
             width: 100%;
             height: 100%;
+            opacity: .8;
         }
 
         #jumptime::-webkit-input-placeholder,
@@ -174,17 +174,52 @@
             width: 400px;
         }
     </style>
-    <script src="js/yzmplayer.js?20201106"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/setting.js?20201123"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cairs00/yzmplayer@master/player/js/yzmplayer.js?20210406"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cairs00/yzmplayer@master/player/js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cairs00/yzmplayer@master/player/js/setting.js?20210412"></script>
     <?php
-    if (strpos($_GET['url'], 'm3u8')) {
-        echo '<script src="js/hls.min.js"></script>';
-    } elseif (strpos($_GET['url'], 'flv')) {
-        echo '<script src="js/flv.min.js"></script>';
+   error_reporting(0); //抑制所有错误信息   
+$url=$_GET['url'];
+    
+	if (empty($url)) {
+      exit('<html>
+	  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+      <meta name="robots" content="noarchive">
+      <title>自建免费视频站解析</title>
+<style>h1{color:#FFFFFF; text-align:center; font-family: Microsoft Jhenghei;}p{color:#CCCCCC; font-size: 1.2rem;text-align:center;font-family: Microsoft Jhenghei;}</style>
+	  <body bgcolor="#000000"><table width="100%" height="100%" align="center"><tbody><tr>
+      <td align="center">
+      <h1><b>自建免费视频站全网解析_永久免费<br><h1>您好像没有输入视频链接地址哦</h1></b></h1>
+      <h1><b>先尝试刷新一次<br></b></h1>
+      </td></tr></tbody></table></body></html>');
+    }elseif(strstr($url, '.m3u8')==true || strstr($url, 'download.weiyun.com')==true || strstr($url, '.mp4')==true || strstr($url, '.flv')==true){
+		$type = $url;//获取播放链接
+	}else {
+	  
+$muxi = 'https://json.hfyrw.com/mao.go?url='.$url; 
+$info=file_get_contents($muxi);
+$arr = (array) json_decode($info,true);
+$type= $arr['url'];
+
+
+	 }
+    if(strpos($type,'')){
+	 $bak = 'https://www.vodjx.top/api/?key=XSQzk8KFK1I7FfPK5X&url='.$url;  
+$info=file_get_contents($bak);
+$arr = (array) json_decode($info,true);
+$type= $arr['url'];
+	}
+	
+if (strpos($type, 'm3u8')) {
+        echo '<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/hls.js/dist/hls.min.js"></script>';
+    } elseif (strpos($type, 'flv')) {
+        echo '<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/flv.js/dist/flv.min.js"></script>';
     }
     ?>
-    <script src="js/layer.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cairs00/yzmplayer@master/player/js/layer.js"></script>
 
     <script>
         var css = '<style type="text/css">';
@@ -209,13 +244,13 @@
     <script>
         var up = {
             "usernum": "<?php include("tj.php"); ?>", //在线人数
-            "mylink": "/bili/player/?url=", //播放器路径，用于下一集
+            "mylink": "", //播放器路径，用于下一集
             "diyid": [0, '游客', 1] //自定义弹幕id
         }
         var config = {
             "api": '/bili/dmku/', //弹幕接口/dmku/
             "av": '<?php echo ($_GET['av']); ?>', //B站弹幕id 45520296
-            "url": "<?php echo ($_GET['url']); ?>", //视频链接
+            "url": "<?php echo ($type); ?>", //视频链接
             "id": "<?php echo (substr(md5($_GET['url']), -20)); ?>", //视频id
             "sid": "<?php echo ($_GET['sid']); ?>", //集数id
             "pic": "<?php echo ($_GET['pic']); ?>", //视频封面

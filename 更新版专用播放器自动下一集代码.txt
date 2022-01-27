@@ -1,0 +1,13 @@
+﻿此为更新版专用苹果CMS 下一集js代码，其他cms可自行研究参考
+
+播放器跨域远程下一集代码：
+说明：就是你的播放器和苹果csm不在同一个域名下使用此代码
+
+MacPlayer.Html = '<iframe border="0"mozallowfullscreen="mozallowfullscreen"msallowfullscreen="msallowfullscreen"oallowfullscreen="oallowfullscreen"webkitallowfullscreen="webkitallowfullscreen"  src="修改成你播放器地址'+MacPlayer.PlayUrl+'&next=//'+maccms.url+''+parent.MacPlayer.PlayLinkNext+'" height="'+MacPlayer.Height+'" width="100%" height="100%" marginWidth="0" frameSpacing="0" marginHeight="0" allowfullscreen="true" frameBorder="0" scrolling="no" vspale="0" noResize></iframe>';
+MacPlayer.Show();
+
+播放器本地下一集代码：
+说明：就是你的播放和苹果cms在同一个域名使用此代码
+
+MacPlayer.Html = '<iframe border="0"mozallowfullscreen="mozallowfullscreen"msallowfullscreen="msallowfullscreen"oallowfullscreen="oallowfullscreen"webkitallowfullscreen="webkitallowfullscreen"  src="'+maccms.path+'修改成你的本地目录下的播放器地址如：/player/?url='+MacPlayer.PlayUrl+'&next='+maccms.path+''+parent.MacPlayer.PlayLinkNext+'" height="'+MacPlayer.Height+'" width="100%" height="100%" marginWidth="0" frameSpacing="0" marginHeight="0" frameBorder="0" scrolling="no" vspale="0" noResize></iframe>';
+MacPlayer.Show();

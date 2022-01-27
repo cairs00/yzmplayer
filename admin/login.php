@@ -23,7 +23,7 @@ echo '
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>弹幕管理系统</title>
+  <title>弹幕管理系统-EDGpro版</title>
 	<link rel="shortcut icon" href="js/favicon.png" type="image/x-icon">
    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
    <link rel="stylesheet" href="js/style.css">
@@ -41,7 +41,7 @@ echo '
 
     <div class="block">
         <div class="block-title">
-            <h2><b>弹幕管理系统</b></h2>
+            <h2><b>弹幕管理系统-EDGpro版</b></h2>
         </div>
 '.$ti.'
           <form action="" method="post" role="form">
@@ -62,7 +62,7 @@ echo '
     die();
 }else{
 	//<br><center><h2>密码: '.$_COOKIE["pass"].'</h2></center>
-    setcookie("zt", $cookielock, time()+86400);
+    setcookie("zt", $cookielock, time()+86400, '/');
 }
 }else{
   	

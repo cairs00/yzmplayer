@@ -45,7 +45,7 @@ function text() {
     table.render({
       elem: '#dmlist'
       ,height: 500
-      ,url: '/bili/dmku/?ac=list' //数据接口
+      ,url: '/dmku/?ac=list' //数据接口
       ,title: '用户表'
       ,page: true //开启分页
       //,toolbar: 'default' //开启工具栏，此处显示默认图标，可以自定义模板，详见文档
@@ -67,7 +67,7 @@ function text() {
     table.render({
       elem: '#dmreport'
       ,height: 480
-      ,url: '/bili/dmku/?ac=reportlist' //数据接口
+      ,url: '/dmku/?ac=reportlist' //数据接口
       ,title: '用户表'
       ,page: true //开启分页
       //,toolbar: 'default' //开启工具栏，此处显示默认图标，可以自定义模板，详见文档
@@ -200,7 +200,7 @@ function text() {
            $.ajax({
                type : 'POST',
                data:data.field,
-               url :'/bili/dmku/?ac=edit',  
+               url :'/dmku/?ac=edit',  
                success : function (data) {
                    layer.msg('保存完成',{time:1000});
                }
@@ -211,7 +211,7 @@ function text() {
            table.render({
               elem: '#dmlist'
               ,height: 500
-              ,url: '/bili/dmku/?ac=so&key='+key //数据接口
+              ,url: '/dmku/?ac=so&key='+key //数据接口
               ,title: '用户表'
               //,page: true //开启分页
               //,toolbar: 'default' //开启工具栏，此处显示默认图标，可以自定义模板，详见文档
@@ -233,7 +233,7 @@ function text() {
        })
    
    
-      function delreport (id) {$.ajax({url: "/bili/dmku/?ac=del&type=report&id="+id,success: function(data){}});}
-      function delid (id) {$.ajax({url: "/bili/dmku/?ac=del&type=list&id="+id,success: function(data){}});}
+      function delreport (id) {$.ajax({url: "/dmku/?ac=del&type=report&id="+id,success: function(data){}});}
+      function delid (id) {$.ajax({url: "/dmku/?ac=del&type=list&id="+id,success: function(data){}});}
    });
   

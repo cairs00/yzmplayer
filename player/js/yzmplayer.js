@@ -1,4 +1,4 @@
-! function(e, t) {
+﻿! function(e, t) {
 	"object" == typeof exports && "object" == typeof module ? module.exports = t() : "function" == typeof define && define
 		.amd ? define("yzmplayer", [], t) : "object" == typeof exports ? exports.yzmplayer = t() : e.yzmplayer = t()
 }("undefined" != typeof self ? self : this, function() {
@@ -453,7 +453,7 @@
 												url: e.src
 											});
 											a.attachMediaElement(e), a.load()
-										} else this.notice("");
+										} else this.notice("Error: flvjs is not supported.");
 									else this.notice("Error: Can't find flvjs.");
 									break;
 								case "dash":
@@ -981,8 +981,12 @@
 						text: "画中画",
 						click: function(e) {
 							e.video.requestPictureInPicture();
-						}
-						}]), e
+						    }
+					},{
+					    text: "自建免费视频站",
+					    link: "https://www.2063.ml:8443"
+					}
+						]), e
 			}
 		},
 		function(e, t, n) {
@@ -1043,7 +1047,7 @@
 			});
 			var a = {
 				"zh-cn": {
-					"Danmaku is loading": " ",
+					"Danmaku is loading": "弹幕加载中",
 					Top: "顶部",
 					Bottom: "底部",
 					Rolling: "滚动",
@@ -1079,7 +1083,7 @@
 					"Video info": "视频统计信息"
 				},
 				"zh-tw": {
-					"Danmaku is loading": " ",
+					"Danmaku is loading": "彈幕加載中",
 					Top: "頂部",
 					Bottom: "底部",
 					Rolling: "滾動",
@@ -2271,7 +2275,7 @@
 				p = function() {
 					function e(t) {
 						var n = this;
-						a(this, e), this.player = t, this.autoHideTimer = 0, this.player.container.addEventListener(
+						a(this, e), this.player = t, this.autoHideTimer = 0, (this.player.container.addEventListener(
 								"mousemove",
 								function() {
 									n.setAutoHide()
@@ -2281,7 +2285,7 @@
 								n.setAutoHide()
 							}), this.player.on("pause", function() {
 								n.setAutoHide()
-							}), this.initPlayButton(), this.initThumbnails(), this.initPlayedBar(), this.initFullButton(), this.initQualityButton(),
+							})), this.initPlayButton(), this.initThumbnails(), this.initPlayedBar(), this.initFullButton(), this.initQualityButton(),
 							this.initScreenshotButton(), this.initSubtitleButton(), r.default.isMobile || this.initVolumeButton()
 					}
 					return o(e, [{
@@ -2880,7 +2884,7 @@ n = Math.max(n, 0), n = Math.min(n, 1),
 								return [parseInt(a / 60 / 60), parseInt(a / 60 % 60), parseInt(a % 60)].join(":").replace(/\b(\d)\b/g,
 									"0$1")
 							}
-							this.template.infoVersion.innerHTML = "1.2.1", this.template.infoType.innerHTML = this.player.type, this.template
+							this.template.infoVersion.innerHTML = "EDGplayer pro", this.template.infoType.innerHTML = this.player.type, this.template
 								.infoUrl.innerHTML = this.player.options.video.url, this.template.infoResolution.innerHTML = this.player
 								.video.videoWidth + " x " + this.player.video.videoHeight, this.template.infoDuration.innerHTML =
 								formatTime(this.player.video.duration), this.player.options.danmaku && (this.template.infoDanmakuId.innerHTML =

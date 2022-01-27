@@ -114,7 +114,8 @@ function showmessage($code = 23, $mes = null)
         }
         $tips = [2, "right", "#fff", "", "$mov"];
         $tips1 = [$_config['tips']['time'], "top", $_config['tips']['color'], "", $_config['tips']['text']];
-        array_unshift($mes, $tips, $tips1);
+$tips2 = [20, "right", "#90ef91", "", "各线路更新速度不同，可切换线路或搜索同名节目获取最新剧集。"];
+        array_unshift($mes, $tips, $tips1, $tips2);
     }
     $id = $_GET['id'];
     $json = [
