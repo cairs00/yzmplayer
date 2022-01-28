@@ -1,4 +1,4 @@
-! function(e, t) {
+﻿! function(e, t) {
 	"object" == typeof exports && "object" == typeof module ? module.exports = t() : "function" == typeof define && define
 		.amd ? define("yzmplayer", [], t) : "object" == typeof exports ? exports.yzmplayer = t() : e.yzmplayer = t()
 }("undefined" != typeof self ? self : this, function() {

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -15,8 +15,8 @@
     <meta name="applicable-device" content="mobile">
     <meta name="screen-orientation" content="portrait">
     <meta name="x5-orientation" content="portrait">
-    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/yzmplayer.css?20200622">
+    <link rel="shortcut icon" href="https://book3.coding.net/p/mojia/d/yzmplayer/git/raw/main/player/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cairs00/yzmplayer@master/player/css/yzmplayer.css?20200622">
     <style>
 /*隐藏页面全屏按钮，隐藏加载动画，隐藏视频信息屏蔽词汇，隐藏弹幕规则*/
 /*默认是显示加载动画的，如需关闭复制下面23行注释的代码替换掉第24行整行代码*/
@@ -32,11 +32,11 @@
         }
 
         .yzmplayer-full-icon span {
-            background: url(./img/full.png) center no-repeat;
+            background: url(https://book3.coding.net/p/mojia/d/yzmplayer/git/raw/main/player/img/full.png) center no-repeat;
         }
 
         .yzmplayer-fulloff-icon span {
-            background: url(./img/fulloff.png) center no-repeat;
+            background: url(https://book3.coding.net/p/mojia/d/yzmplayer/git/raw/main/player/img/fulloff.png) center no-repeat;
         }
 
         #vod-title {
@@ -174,17 +174,17 @@
             width: 400px;
         }
     </style>
-    <script src="js/yzmplayer.js?20201106"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/setting.js?20201123"></script>
+    <script src="https://book3.coding.net/p/mojia/d/yzmplayer/git/raw/main/player/js/yzmplayer.js?20210406"></script>
+    <script src="https://lib.baomitu.com/jquery/latest/jquery.min.js"></script>
+    <script src="https://book3.coding.net/p/mojia/d/yzmplayer/git/raw/main/player/js/setting.js?20210412"></script>
     <?php
     if (strpos($_GET['url'], 'm3u8')) {
-        echo '<script src="js/hls.min.js"></script>';
+        echo '<script src="https://lib.baomitu.com/hls.js/latest/hls.min.js"></script>';
     } elseif (strpos($_GET['url'], 'flv')) {
-        echo '<script src="js/flv.min.js"></script>';
+        echo '<script src="https://lib.baomitu.com/flv.js/latest/flv.min.js"></script>';
     }
     ?>
-    <script src="js/layer.js"></script>
+    <script src="https://lib.baomitu.com/layer/latest/layer.js"></script>
 
     <script>
         var css = '<style type="text/css">';

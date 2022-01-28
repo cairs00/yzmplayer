@@ -1,4 +1,4 @@
-﻿<?php
+<?php
  $yzm =  array (
   'danmuon' => 'on',
   'color' => '#de698c',

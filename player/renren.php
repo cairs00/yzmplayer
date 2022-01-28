@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -15,7 +15,7 @@
     <meta name="applicable-device" content="mobile">
     <meta name="screen-orientation" content="portrait">
     <meta name="x5-orientation" content="portrait">
-    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/cairs00/yzmplayer@master/player/img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://book3.coding.net/p/mojia/d/yzmplayer/git/raw/main/player/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cairs00/yzmplayer@master/player/css/yzmplayer.css?20200622">
     <style>
 /*隐藏页面全屏按钮，隐藏加载动画，隐藏视频信息屏蔽词汇，隐藏弹幕规则*/
@@ -31,11 +31,11 @@
         }
 
         .yzmplayer-full-icon span {
-            background: url(https://cdn.jsdelivr.net/gh/cairs00/yzmplayer@master/player/img/full.png) center no-repeat;
+            background: url(https://book3.coding.net/p/mojia/d/yzmplayer/git/raw/main/player/img/full.png) center no-repeat;
         }
 
         .yzmplayer-fulloff-icon span {
-            background: url(https://cdn.jsdelivr.net/gh/cairs00/yzmplayer@master/player/img/fulloff.png) center no-repeat;
+            background: url(https://book3.coding.net/p/mojia/d/yzmplayer/git/raw/main/player/img/fulloff.png) center no-repeat;
         }
 
         #vod-title {
@@ -174,9 +174,9 @@
             width: 400px;
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/gh/cairs00/yzmplayer@master/player/js/yzmplayer.js?20210406"></script>
-    <script src="https://cdn.jsdelivr.net/gh/cairs00/yzmplayer@master/player/js/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/cairs00/yzmplayer@master/player/js/setting.js?20210412"></script>
+    <script src="https://book3.coding.net/p/mojia/d/yzmplayer/git/raw/main/player/js/yzmplayer.js?20210406"></script>
+    <script src="https://lib.baomitu.com/jquery/latest/jquery.min.js"></script>
+    <script src="https://book3.coding.net/p/mojia/d/yzmplayer/git/raw/main/player/js/setting.js?20210412"></script>
     <?php
    error_reporting(0); //抑制所有错误信息   
 $url=$_GET['url'];
@@ -214,12 +214,12 @@ $type= $arr['url'];
 	}
 	
 if (strpos($type, 'm3u8')) {
-        echo '<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/hls.js/dist/hls.min.js"></script>';
+        echo '<script type="text/javascript" src="https://lib.baomitu.com/hls.js/latest/hls.min.js"></script>';
     } elseif (strpos($type, 'flv')) {
-        echo '<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/flv.js/dist/flv.min.js"></script>';
+        echo '<script type="text/javascript" src="https://lib.baomitu.com/flv.js/latest/flv.min.js"></script>';
     }
     ?>
-    <script src="https://cdn.jsdelivr.net/gh/cairs00/yzmplayer@master/player/js/layer.js"></script>
+    <script src="https://lib.baomitu.com/layer/latest/layer.js"></script>
 
     <script>
         var css = '<style type="text/css">';

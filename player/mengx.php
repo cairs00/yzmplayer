@@ -16,7 +16,7 @@
     <meta name="screen-orientation" content="portrait">
     <meta name="x5-orientation" content="portrait">
     <link rel="shortcut icon" href="https://book3.coding.net/p/mojia/d/yzmplayer/git/raw/main/player/img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="/bili/player/css/yzmplayern.css?20200622">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cairs00/yzmplayer@master/player/css/yzmplayer.css?20200622">
     <style>
 /*隐藏页面全屏按钮，隐藏加载动画，隐藏视频信息屏蔽词汇，隐藏弹幕规则*/
 .yzmplayer-info-panel-item-title-amount ,#loading-box,#player_pause .tip,.yzmplayer-full .yzmplayer-full-in-icon,#link3-error,.dmrules{
@@ -175,7 +175,7 @@
         }
     </style>
     <script src="https://book3.coding.net/p/mojia/d/yzmplayer/git/raw/main/player/js/yzmplayer.js?20210406"></script>
-    <script src="https://book3.coding.net/p/mojia/d/yzmplayer/git/raw/main/player/js/jquery.min.js"></script>
+    <script src="https://lib.baomitu.com/jquery/latest/jquery.min.js"></script>
     <script src="https://book3.coding.net/p/mojia/d/yzmplayer/git/raw/main/player/js/setting.js?20210412"></script>
     <?php
     $url=$_GET['url'];
@@ -188,12 +188,12 @@ $url= $arr['url'];
 
 
 if (strpos($url, 'm3u8')) {
-        echo '<script type="text/javascript" src="https://book3.coding.net/p/mojia/d/yzmplayer/git/raw/main/player/js/hls.min.js"></script>';
+        echo '<script type="text/javascript" src="https://lib.baomitu.com/hls.js/latest/hls.min.js"></script>';
     } elseif (strpos($url, 'flv')) {
-        echo '<script type="text/javascript" src="https://book3.coding.net/p/mojia/d/yzmplayer/git/raw/main/player/js/flv.min.js"></script>';
+        echo '<script type="text/javascript" src="https://lib.baomitu.com/flv.js/latest/flv.min.js"></script>';
     }
     ?>
-    <script src="https://book3.coding.net/p/mojia/d/yzmplayer/git/raw/main/player/js/layer.js"></script>
+    <script src="https://lib.baomitu.com/layer/latest/layer.js"></script>
 
     <script>
         var css = '<style type="text/css">';
