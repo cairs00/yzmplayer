@@ -593,7 +593,7 @@ var YZM = {
 		'dmplay': function(url) {
 			YZM.dmid();
 			YZM.dp = new yzmplayer({
-				autoplay: false,
+				autoplay: true,
 				element: document.getElementById('player'),
 				theme: config.color,
 				logo: config.logo,
@@ -614,7 +614,7 @@ var YZM = {
 		'bdplay': function(url) {
 			YZM.dmid();
 			YZM.dp = new yzmplayer({
-				autoplay: false,
+				autoplay: true,
 				element: document.getElementById('player'),
 				theme: config.color,
 				logo: config.logo,
